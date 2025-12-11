@@ -1,0 +1,10 @@
+buku = dict(
+    judul="pemrograman Dasar",
+    tahun=2024,
+    penulis="Andi"
+)
+
+buku["harga"] = 75000
+
+for k, v in buku.items():
+    print(k, ":", v)
