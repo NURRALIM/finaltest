@@ -1,0 +1,25 @@
+#Binary Search
+def binary_search(a, key):
+    left, right = 0, len(a) - 1
+    while left <= right:
+        m = (left + right) // 2
+        if a[m] == key:
+            return m
+        left, right = (m + 1, right) if a[m] < key else (left, m - 1)
+    return -1
+
+arr = [3, 8, 12, 20, 25]
+print("Binary Search posisi:", binary_search(arr, 20))
+
+#Interpolation Search
+def interpolation_search(a, key):
+    lo, hi = 0, len(a) - 1
+    while lo <= hi and key >= a[lo] and key <= a[hi]:
+        pos = lo + (key - a[lo]) * (hi - lo) // (a[hi] - a[lo])
+        if a[pos] == key:
+            return pos
+        lo, hi = (pos + 1, hi) if a[pos] < key else (lo, pos - 1)
+    return -1
+
+data = [10, 20, 30, 40, 50]
+print("Interpolation Search posisi:", interpolation_search(data, 30))
