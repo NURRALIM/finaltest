@@ -1,0 +1,13 @@
+# Integer
+umur = 19
+
+# Float
+nilai = 87.5
+
+# String
+nama = "Nur Alim"
+
+# Boolean (tambahan)
+status = True
+
+print(umur, nilai, nama, status)
