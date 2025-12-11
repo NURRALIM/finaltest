@@ -1,0 +1,57 @@
+#Stack single
+stack = []
+
+# push
+for x in [5, 10, 15]:
+    stack.append(x)
+
+print("Isi stack:", stack)
+
+# pop
+while stack:
+    print("Pop:", stack.pop())
+
+#Double Stack
+class DoubleStack:
+    def __init__(self, size):
+        self.arr = [None] * size
+        self.top1 = -1
+        self.top2 = size
+
+    def push1(self, val):
+        if self.top1 + 1 == self.top2:
+            print("Overflow Stack 1")
+            return
+        self.top1 += 1
+        self.arr[self.top1] = val
+
+    def push2(self, val):
+        if self.top2 - 1 == self.top1:
+            print("Overflow Stack 2")
+            return
+        self.top2 -= 1
+        self.arr[self.top2] = val
+
+    def pop1(self):
+        if self.top1 == -1:
+            return None
+        val = self.arr[self.top1]
+        self.top1 -= 1
+        return val
+
+    def pop2(self):
+        if self.top2 == len(self.arr):
+            return None
+        val = self.arr[self.top2]
+        self.top2 += 1
+        return val
+
+# contoh
+ds = DoubleStack(10)
+ds.push1(100)
+ds.push1(200)
+ds.push2(999)
+ds.push2(888)
+
+print("Pop stack 1:", ds.pop1())
+print("Pop stack 2:", ds.pop2())
